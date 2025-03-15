@@ -8,7 +8,6 @@ const categories = [
   { name: "Pendants", href: "/category/pendants" },
   { name: "Bracelets", href: "/category/bracelets" },
   { name: "Solitaire", href: "/category/solitaire" },
-  { name: "Ready to Ship", href: "/ready-to-ship" },
 ];
 
 export default function Header() {

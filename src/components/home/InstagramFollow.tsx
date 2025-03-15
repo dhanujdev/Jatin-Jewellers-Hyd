@@ -7,8 +7,12 @@ export default function InstagramFollow() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-playfair mb-3 text-white">Follow Us on Instagram</h2>
           <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
+          <p className="mb-6 text-white/80 font-light">
+            All the jewelry pieces you see on our website are from our Instagram feed. 
+            Follow us to see our latest designs and be the first to know about new arrivals.
+          </p>
           <p className="mb-10 text-white/80 font-light">
-            Stay updated with our latest collections, designs, and exclusive offers by following our Instagram page.
+            We regularly update our Instagram with our newest and most popular jewelry pieces.
           </p>
 
           <div className="flex justify-center">
@@ -24,7 +28,7 @@ export default function InstagramFollow() {
           </div>
 
           <p className="mt-10 text-sm text-white/60">
-            Get inspired by our stunning jewelry designs and be the first to know about our new arrivals and special promotions.
+            For inquiries about any piece you see on our Instagram, please contact us directly.
           </p>
         </div>
       </div>
