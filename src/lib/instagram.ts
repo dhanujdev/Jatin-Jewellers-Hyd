@@ -1,7 +1,7 @@
 // Instagram API integration
 // This file provides utilities to fetch and process Instagram images
 // THIS FILE IS AUTO-GENERATED - DO NOT EDIT DIRECTLY
-// Last updated: 2025-03-15T19:05:31.546Z
+// Last updated: 2025-03-15T19:25:40.619Z
 
 export type InstagramPost = {
   id: string;

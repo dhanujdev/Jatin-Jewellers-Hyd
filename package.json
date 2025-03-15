@@ -11,7 +11,11 @@
     "fmt": "prettier --write .",
     "fetch-instagram": "node scripts/fetch-instagram-complete.js",
     "scrape-instagram": "node scripts/instagram-scraper.js",
-    "manual-instagram": "node scripts/manual-instagram-import.js"
+    "manual-instagram": "node scripts/manual-instagram-import.js",
+    "categorize-images": "node scripts/categorize-images.js",
+    "auto-categorize": "node scripts/auto-categorize-images.js",
+    "lens-categorize": "node scripts/google-lens-categorize.js",
+    "rename-images": "node scripts/rename-images.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -29,6 +33,7 @@
     "puppeteer": "^24.4.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.1.0"
