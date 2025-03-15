@@ -55,7 +55,7 @@ export default function FeaturedProducts() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-playfair mb-3 text-black">
-              Bestsellers
+              Featured Products
             </h2>
             <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
             <p className="text-black/70 max-w-2xl mx-auto font-light">
@@ -79,7 +79,7 @@ export default function FeaturedProducts() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-playfair mb-3 text-black">
-            Bestsellers
+            Featured Products
           </h2>
           <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
           <p className="text-black/70 max-w-2xl mx-auto font-light">
