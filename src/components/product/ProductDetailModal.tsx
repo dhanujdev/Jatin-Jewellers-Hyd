@@ -30,7 +30,7 @@ interface ProductDetails {
 // Mock product details - in a real app, these would come from your product database
 const mockProductDetails: {[key: string]: ProductDetails} = {
   rings: {
-    description: "Exquisite lab-grown diamond ring crafted with precision and elegance. Perfect for special occasions or as a timeless gift.",
+    description: "Exquisite diamond ring crafted with precision and elegance. Perfect for special occasions or as a timeless gift.",
     weight: "2.5 grams",
     material: "18K Gold",
     diamondCarat: "0.75 carat",
@@ -41,7 +41,7 @@ const mockProductDetails: {[key: string]: ProductDetails} = {
     careInstructions: "Clean with mild soap and warm water. Store in a jewelry box when not in use."
   },
   earrings: {
-    description: "Stunning lab-grown diamond earrings that add a touch of sophistication to any outfit. Designed for everyday luxury.",
+    description: "Stunning diamond earrings that add a touch of sophistication to any outfit. Designed for everyday luxury.",
     weight: "3.2 grams",
     material: "18K White Gold",
     diamondCarat: "1.0 carat total",
@@ -52,7 +52,7 @@ const mockProductDetails: {[key: string]: ProductDetails} = {
     careInstructions: "Clean with mild soap and warm water. Store in a jewelry box when not in use."
   },
   pendants: {
-    description: "Elegant lab-grown diamond pendant that captures light beautifully. A versatile piece that complements any neckline.",
+    description: "Elegant diamond pendant that captures light beautifully. A versatile piece that complements any neckline.",
     weight: "1.8 grams",
     material: "18K Rose Gold",
     diamondCarat: "0.5 carat",
@@ -63,7 +63,7 @@ const mockProductDetails: {[key: string]: ProductDetails} = {
     careInstructions: "Clean with mild soap and warm water. Store in a jewelry box when not in use."
   },
   bracelets: {
-    description: "Luxurious lab-grown diamond bracelet that wraps your wrist in brilliance. A statement piece for special occasions.",
+    description: "Luxurious diamond bracelet that wraps your wrist in brilliance. A statement piece for special occasions.",
     weight: "5.7 grams",
     material: "18K Gold",
     diamondCarat: "2.0 carats total",
@@ -74,7 +74,7 @@ const mockProductDetails: {[key: string]: ProductDetails} = {
     careInstructions: "Clean with mild soap and warm water. Store in a jewelry box when not in use."
   },
   solitaire: {
-    description: "Breathtaking lab-grown diamond solitaire that symbolizes eternal love. The perfect choice for engagements and celebrations.",
+    description: "Breathtaking diamond solitaire that symbolizes eternal love. The perfect choice for engagements and celebrations.",
     weight: "3.0 grams",
     material: "Platinum",
     diamondCarat: "1.5 carat",
@@ -85,7 +85,7 @@ const mockProductDetails: {[key: string]: ProductDetails} = {
     careInstructions: "Clean with mild soap and warm water. Store in a jewelry box when not in use."
   },
   uncategorized: {
-    description: "Beautiful lab-grown diamond jewelry piece crafted with attention to detail. A perfect addition to your collection.",
+    description: "Beautiful diamond jewelry piece crafted with attention to detail. A perfect addition to your collection.",
     weight: "2.0 grams",
     material: "18K Gold",
     diamondCarat: "0.5 carat",

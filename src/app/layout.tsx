@@ -21,17 +21,17 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Jatin Jewellers - Exquisite Lab Grown Diamond Jewellery",
-  description: "Discover our stunning collection of lab grown diamond jewelry at Jatin Jewellers. Elegant designs, superior craftsmanship, and sustainable luxury - all at accessible prices.",
-  keywords: "lab grown diamonds, diamond jewelry, sustainable jewelry, ethical diamonds, engagement rings, diamond earrings, diamond pendants, diamond bracelets, Jatin Jewellers",
+  title: "Jatin Jewellers - Exquisite Diamond Jewellery",
+  description: "Discover our stunning collection of diamond jewelry at Jatin Jewellers. Elegant designs and superior craftsmanship at accessible prices.",
+  keywords: "diamond jewelry, luxury jewelry, diamond rings, engagement rings, diamond earrings, diamond pendants, diamond bracelets, Jatin Jewellers",
   authors: [{ name: "Jatin Jewellers" }],
   creator: "Jatin Jewellers",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://jatinjewellers.in",
-    title: "Jatin Jewellers - Exquisite Lab Grown Diamond Jewellery",
-    description: "Discover our stunning collection of lab grown diamond jewelry at Jatin Jewellers. Elegant designs, superior craftsmanship, and sustainable luxury.",
+    title: "Jatin Jewellers - Exquisite Diamond Jewellery",
+    description: "Discover our stunning collection of diamond jewelry at Jatin Jewellers. Elegant designs and superior craftsmanship.",
     siteName: "Jatin Jewellers",
   },
 };

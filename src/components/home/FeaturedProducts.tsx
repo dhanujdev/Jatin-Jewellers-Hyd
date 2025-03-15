@@ -59,7 +59,7 @@ export default function FeaturedProducts() {
             </h2>
             <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
             <p className="text-black/70 max-w-2xl mx-auto font-light">
-              Discover our most popular lab-grown diamond jewelry pieces, crafted with precision and elegance
+              Discover our most popular diamond jewelry pieces, crafted with precision and elegance
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -83,7 +83,7 @@ export default function FeaturedProducts() {
           </h2>
           <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
           <p className="text-black/70 max-w-2xl mx-auto font-light">
-            Discover our most popular lab-grown diamond jewelry pieces, crafted with precision and elegance
+            Discover our most popular diamond jewelry pieces, crafted with precision and elegance
           </p>
         </div>
 
