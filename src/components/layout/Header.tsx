@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, Search, User, Heart } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -15,8 +16,19 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-cormorant font-light tracking-widest text-black">
-          <span className="text-gold">JATIN</span> JEWELLERS
+        <Link href="/" className="flex items-center space-x-3">
+          <div className="relative w-10 h-10 overflow-hidden rounded-full">
+            <Image 
+              src="/images/logo/logo.jpg" 
+              alt="Jatin Jewellers Logo" 
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <span className="text-2xl font-cormorant font-light tracking-widest text-black">
+            <span className="text-gold">JATIN</span> JEWELLERS
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -52,10 +64,18 @@ export default function Header() {
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-white">
-              <div className="mt-8 mb-6">
-                <Link href="/" className="text-xl font-cormorant font-light tracking-widest text-black">
+              <div className="mt-8 mb-6 flex items-center space-x-3">
+                <div className="relative w-8 h-8 overflow-hidden rounded-full">
+                  <Image 
+                    src="/images/logo/logo.jpg" 
+                    alt="Jatin Jewellers Logo" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <span className="text-xl font-cormorant font-light tracking-widest text-black">
                   <span className="text-gold">JATIN</span> JEWELLERS
-                </Link>
+                </span>
               </div>
               <nav className="flex flex-col space-y-5">
                 {categories.map((category) => (

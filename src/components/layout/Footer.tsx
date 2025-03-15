@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Twitter, Youtube, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -7,8 +8,18 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         {/* Logo and Tagline */}
         <div className="text-center mb-12">
-          <Link href="/" className="inline-block text-2xl font-cormorant font-light tracking-widest text-white mb-4">
-            <span className="text-gold">JATIN</span> JEWELLERS
+          <Link href="/" className="inline-flex flex-col items-center">
+            <div className="relative w-16 h-16 overflow-hidden rounded-full mb-4 border-2 border-gold">
+              <Image 
+                src="/images/logo/logo.jpg" 
+                alt="Jatin Jewellers Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="text-2xl font-cormorant font-light tracking-widest text-white mb-4">
+              <span className="text-gold">JATIN</span> JEWELLERS
+            </span>
           </Link>
           <p className="text-white/70 max-w-md mx-auto text-sm font-montserrat font-light tracking-wide">
             Crafting timeless elegance through exquisite diamond jewelry since 1985
