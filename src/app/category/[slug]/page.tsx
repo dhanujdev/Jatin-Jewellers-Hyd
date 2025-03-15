@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getPostsByCategory, InstagramPost } from '@/lib/instagram';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import type { Metadata } from 'next';
 
 // Format price to Indian Rupees
 function formatPrice(price: number) {
@@ -33,8 +34,20 @@ const categoryNames: {[key: string]: string} = {
   solitaire: 'Solitaire',
 };
 
-export default async function CategoryPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+// Generate metadata for each category page
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const categoryName = categoryNames[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
+  
+  return {
+    title: `${categoryName} Collection | Jatin Jewellers`,
+    description: `Explore our exquisite collection of ${categoryName.toLowerCase()} crafted with precision and elegance at Jatin Jewellers.`,
+  };
+}
+
+// In Next.js 15, params is now a Promise that needs to be awaited
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const categoryName = categoryNames[slug] || slug.charAt(0).toUpperCase() + slug.slice(1);
   
   // Fetch posts for this category
