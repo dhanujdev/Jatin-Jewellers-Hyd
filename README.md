@@ -4,35 +4,53 @@ A luxury jewelry website for Jatin Jewellers that displays products from their I
 
 ## Instagram Integration
 
-This website pulls images directly from the Jatin Jewellers Instagram account (@jatinjewellershyd). The integration works as follows:
+This website displays images from the Jatin Jewellers Instagram account (@jatinjewellershyd). Unlike typical Instagram integrations that fetch images dynamically, this website uses a static approach where images are downloaded once and stored locally.
 
-1. **Image Source**: All product images are sourced from the Instagram feed
-2. **Categorization**: Products are automatically categorized based on hashtags and captions
-3. **Display**: Images are displayed in the appropriate sections of the website
+### How It Works
 
-### How to Update the Website
+1. **One-Time Image Fetch**: Images are fetched from Instagram only once (or when you add new pictures)
+2. **Local Storage**: Images are saved to the `public/images/instagram` directory
+3. **Static Data**: Image metadata is stored in a static data file
+4. **Automatic Categorization**: Products are categorized based on hashtags and captions
 
-To add new products to the website, simply:
+### How to Update the Website with New Instagram Posts
 
-1. Post new jewelry images to the Instagram account
-2. Include appropriate hashtags or keywords in the caption to categorize the product:
-   - For rings: Include #ring, #rings, #engagement, #wedding, or #solitaire
-   - For earrings: Include #earring, #earrings, #studs, #jhumka, or #jhumkas
-   - For pendants: Include #pendant, #pendants, #necklace, or #necklaces
-   - For bracelets: Include #bracelet, #bracelets, #bangle, or #bangles
+When you add new jewelry images to your Instagram account:
 
-The website will automatically fetch and display the latest images in the appropriate categories.
+1. **Post to Instagram**: Add new jewelry images to your Instagram account with appropriate hashtags
+2. **Run the Update Script**: Execute the Instagram fetch script:
+   ```bash
+   # Install dependencies (first time only)
+   npm install dotenv axios
+   
+   # Create a .env file with your Instagram access token (first time only)
+   echo "INSTAGRAM_ACCESS_TOKEN=your_token_here" > .env
+   
+   # Run the script
+   node scripts/fetch-instagram-complete.js
+   ```
+3. **Deploy the Changes**: Commit and push the changes to your repository
 
-### Technical Implementation
+### Categorization Guidelines
 
-In a production environment, you would need to:
+Include appropriate hashtags or keywords in your Instagram captions to categorize products:
 
-1. Set up Instagram Graph API access
-2. Create a server-side function to fetch Instagram data
-3. Store the access token securely
-4. Implement proper caching to avoid rate limits
+- For rings: Include #ring, #rings, #engagement, #wedding, or #solitaire
+- For earrings: Include #earring, #earrings, #studs, #jhumka, or #jhumkas
+- For pendants: Include #pendant, #pendants, #necklace, or #necklaces
+- For bracelets: Include #bracelet, #bracelets, #bangle, or #bangles
 
-The current implementation uses mock data that simulates Instagram posts. To implement the actual Instagram API integration, you'll need to update the `fetchInstagramPosts` function in `src/lib/instagram.ts`.
+### Setting Up Instagram API Access (One-Time Setup)
+
+To fetch images from Instagram, you'll need to set up API access:
+
+1. Create a Facebook Developer account at [developers.facebook.com](https://developers.facebook.com/)
+2. Create a Facebook App
+3. Set up Instagram Basic Display API
+4. Generate a long-lived access token
+5. Add the token to your `.env` file
+
+Detailed instructions can be found in the [Facebook Developer Documentation](https://developers.facebook.com/docs/instagram-basic-display-api/getting-started).
 
 ## Development
 

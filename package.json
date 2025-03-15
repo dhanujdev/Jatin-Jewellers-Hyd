@@ -8,7 +8,8 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "fetch-instagram": "node scripts/fetch-instagram-complete.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
