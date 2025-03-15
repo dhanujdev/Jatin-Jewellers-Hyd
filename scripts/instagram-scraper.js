@@ -3,8 +3,8 @@
 /**
  * Instagram Scraper
  * 
- * This script uses Puppeteer to log in to Instagram and download images from your account.
- * It will download posts, highlights, and stories, then organize them into your website.
+ * This script uses Puppeteer to log in to Instagram and download images from the Jatin Jewellers account.
+ * It will download posts and organize them into your website.
  * 
  * Usage:
  * 1. Install dependencies: npm install puppeteer fs-extra path
@@ -53,10 +53,16 @@ function askQuestion(query) {
   }));
 }
 
+// Helper function for delay
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // Main function to scrape Instagram
 async function scrapeInstagram() {
   try {
     console.log('Instagram Scraper Starting...');
+    console.log('This script will scrape posts from the Jatin Jewellers Instagram account (@jatinjewellershyd)');
     
     // Get Instagram credentials
     const username = await askQuestion('Enter your Instagram username: ');
@@ -110,18 +116,69 @@ async function scrapeInstagram() {
       await page.waitForNavigation({ timeout: 60000 }); // Wait for manual verification
     }
     
-    // Navigate to profile
-    console.log('Navigating to your profile...');
-    await page.goto(`https://www.instagram.com/${username}/`, { waitUntil: 'networkidle2' });
+    // Navigate to Jatin Jewellers profile
+    console.log('Navigating to Jatin Jewellers profile...');
+    await page.goto('https://www.instagram.com/jatinjewellershyd/', { waitUntil: 'networkidle2' });
     
     // Get post links
     console.log('Collecting post links...');
     const postLinks = await page.evaluate(() => {
-      const links = Array.from(document.querySelectorAll('a[href^="/p/"]'));
-      return links.map(link => link.href);
+      // Try multiple selectors to find post links
+      const selectors = [
+        'a[href^="/p/"]',
+        'article a[href*="/p/"]',
+        'main article a[href*="/p/"]',
+        'div[role="presentation"] a[href*="/p/"]'
+      ];
+      
+      let links = [];
+      for (const selector of selectors) {
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+          links = Array.from(elements).map(link => link.href);
+          break;
+        }
+      }
+      
+      // Remove duplicates
+      return [...new Set(links)];
     });
     
     console.log(`Found ${postLinks.length} posts`);
+    
+    // If no posts found, try scrolling to load more content
+    if (postLinks.length === 0) {
+      console.log('No posts found initially, scrolling to load more content...');
+      
+      // Scroll down a few times to load more posts
+      for (let i = 0; i < 5; i++) {
+        await page.evaluate(() => {
+          window.scrollBy(0, window.innerHeight);
+        });
+        await delay(1000); // Wait for content to load
+      }
+      
+      // Try getting post links again
+      const morePostLinks = await page.evaluate(() => {
+        const links = Array.from(document.querySelectorAll('a[href*="/p/"]'));
+        return [...new Set(links.map(link => link.href))];
+      });
+      
+      console.log(`Found ${morePostLinks.length} posts after scrolling`);
+      
+      if (morePostLinks.length > 0) {
+        postLinks.push(...morePostLinks);
+      }
+    }
+    
+    console.log(`Total unique posts found: ${postLinks.length}`);
+    
+    if (postLinks.length === 0) {
+      console.log('No posts found on the Jatin Jewellers Instagram profile.');
+      console.log('Please check if the account exists and has public posts.');
+      await browser.close();
+      return;
+    }
     
     // Create directories
     const imagesDir = path.join('public', 'images', 'instagram');
@@ -137,56 +194,111 @@ async function scrapeInstagram() {
       const postUrl = postLinks[i];
       console.log(`Processing post ${i + 1}/${postLinks.length}: ${postUrl}`);
       
-      await page.goto(postUrl, { waitUntil: 'networkidle2' });
-      
-      // Get post data
-      const postData = await page.evaluate(() => {
-        // Get image URL
-        const imageElement = document.querySelector('article img[style*="object-fit"]');
-        const imageUrl = imageElement ? imageElement.src : null;
+      try {
+        // Add a random delay between requests to avoid rate limiting
+        const delayTime = 1000 + Math.floor(Math.random() * 2000);
+        console.log(`Waiting ${delayTime}ms before processing next post...`);
+        await delay(delayTime);
         
-        // Get caption
-        const captionElement = document.querySelector('h1 + div');
-        const caption = captionElement ? captionElement.textContent : '';
+        // Navigate to the post with a longer timeout
+        await page.goto(postUrl, { 
+          waitUntil: 'networkidle2',
+          timeout: 30000 // 30 seconds timeout
+        });
         
-        // Get timestamp
-        const timeElement = document.querySelector('time');
-        const timestamp = timeElement ? timeElement.dateTime : new Date().toISOString();
+        // Get post data
+        const postData = await page.evaluate(() => {
+          // Try multiple selectors to find the image
+          const imageSelectors = [
+            'article img[style*="object-fit"]',
+            'article div[role="button"] img',
+            'article div[role="presentation"] img',
+            'article img[crossorigin="anonymous"]',
+            'img[alt*="Photo by"]',
+            'img[alt*="Photo shared"]',
+            'div[role="dialog"] img'
+          ];
+          
+          let imageUrl = null;
+          for (const selector of imageSelectors) {
+            const img = document.querySelector(selector);
+            if (img && img.src) {
+              imageUrl = img.src;
+              break;
+            }
+          }
+          
+          // Try multiple selectors to find the caption
+          const captionSelectors = [
+            'h1 + div',
+            'article div[dir="auto"]',
+            'article span[dir="auto"]',
+            'div[role="dialog"] div[dir="auto"]',
+            'ul li span'
+          ];
+          
+          let caption = '';
+          for (const selector of captionSelectors) {
+            const element = document.querySelector(selector);
+            if (element && element.textContent) {
+              caption = element.textContent.trim();
+              if (caption) break;
+            }
+          }
+          
+          // Get timestamp
+          const timeElement = document.querySelector('time');
+          const timestamp = timeElement ? timeElement.dateTime : new Date().toISOString();
+          
+          return { imageUrl, caption, timestamp };
+        });
         
-        return { imageUrl, caption, timestamp };
-      });
-      
-      if (!postData.imageUrl) {
-        console.log(`No image found for post ${postUrl}, skipping...`);
-        continue;
+        if (!postData.imageUrl) {
+          console.log(`No image found for post ${postUrl}, skipping...`);
+          continue;
+        }
+        
+        // Categorize post
+        const category = categorizePost(postData.caption);
+        
+        // Generate filename
+        const postId = postUrl.split('/p/')[1].split('/')[0];
+        const filename = `${category}-${postId}.jpg`;
+        const filepath = path.join(imagesDir, filename);
+        
+        // Download image
+        console.log(`Downloading image to ${filepath}...`);
+        
+        try {
+          // View image in new tab to download it
+          const imageUrl = postData.imageUrl;
+          const viewSource = await page.goto(imageUrl, { timeout: 30000 });
+          const buffer = await viewSource.buffer();
+          await fs.writeFile(filepath, buffer);
+          
+          // Add to posts array
+          posts.push({
+            id: postId,
+            media_url: `/images/instagram/${filename}`,
+            permalink: postUrl,
+            caption: postData.caption,
+            timestamp: postData.timestamp,
+            category
+          });
+          
+          console.log(`Successfully processed post: ${postUrl}`);
+        } catch (imageError) {
+          console.error(`Error downloading image from ${postUrl}:`, imageError.message);
+        }
+      } catch (postError) {
+        console.error(`Error processing post ${postUrl}:`, postError.message);
       }
-      
-      // Categorize post
-      const category = categorizePost(postData.caption);
-      
-      // Generate filename
-      const postId = postUrl.split('/p/')[1].split('/')[0];
-      const filename = `${category}-${postId}.jpg`;
-      const filepath = path.join(imagesDir, filename);
-      
-      // Download image
-      console.log(`Downloading image to ${filepath}...`);
-      
-      // View image in new tab to download it
-      const imageUrl = postData.imageUrl;
-      const viewSource = await page.goto(imageUrl);
-      const buffer = await viewSource.buffer();
-      await fs.writeFile(filepath, buffer);
-      
-      // Add to posts array
-      posts.push({
-        id: postId,
-        media_url: `/images/instagram/${filename}`,
-        permalink: postUrl,
-        caption: postData.caption,
-        timestamp: postData.timestamp,
-        category
-      });
+    }
+    
+    if (posts.length === 0) {
+      console.log('No posts were successfully processed.');
+      await browser.close();
+      return;
     }
     
     // Save posts data
@@ -210,38 +322,20 @@ export type InstagramPost = {
   category: string;
 };
 
-// Categories we want to extract from Instagram posts
-export const CATEGORIES = {
-  RINGS: ['ring', 'rings', 'engagement', 'wedding', 'solitaire'],
-  EARRINGS: ['earring', 'earrings', 'studs', 'jhumka', 'jhumkas'],
-  PENDANTS: ['pendant', 'pendants', 'necklace', 'necklaces'],
-  BRACELETS: ['bracelet', 'bracelets', 'bangle', 'bangles'],
-};
-
-// Function to categorize a post based on its caption
-export function categorizePost(post: InstagramPost): string {
-  const caption = post.caption?.toLowerCase() || '';
-  
-  for (const [category, keywords] of Object.entries(CATEGORIES)) {
-    if (keywords.some(keyword => caption.includes(keyword))) {
-      return category.toLowerCase();
-    }
-  }
-  
-  return 'uncategorized';
-}
-
-// Static data - loaded from Instagram once
-export const instagramPosts: InstagramPost[] = ${JSON.stringify(posts, null, 2)};
+// Load Instagram posts from the JSON file
+import instagramPostsData from '@/data/instagram-posts.json';
+export const instagramPosts: InstagramPost[] = instagramPostsData;
 
 // Fetch Instagram posts - returns the static data
 export async function fetchInstagramPosts(): Promise<InstagramPost[]> {
   return Promise.resolve(instagramPosts);
 }
 
-// Get posts for a specific category
+// Get posts by category
 export async function getPostsByCategory(category: string): Promise<InstagramPost[]> {
-  return instagramPosts.filter(post => post.category === category.toLowerCase());
+  return Promise.resolve(
+    instagramPosts.filter(post => post.category === category)
+  );
 }
 
 // Get featured posts for the carousel (best/newest posts)
@@ -250,6 +344,23 @@ export async function getFeaturedPosts(count: number = 3): Promise<InstagramPost
   return [...instagramPosts]
     .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
     .slice(0, count);
+}
+
+// Helper function to categorize a post based on its caption
+export function categorizePost(post: Omit<InstagramPost, 'category'>): string {
+  const caption = post.caption.toLowerCase();
+  
+  if (caption.includes('#rings') || caption.includes('#ring')) {
+    return 'rings';
+  } else if (caption.includes('#earrings') || caption.includes('#earring')) {
+    return 'earrings';
+  } else if (caption.includes('#pendants') || caption.includes('#pendant') || caption.includes('#necklace')) {
+    return 'pendants';
+  } else if (caption.includes('#bracelets') || caption.includes('#bracelet')) {
+    return 'bracelets';
+  } else {
+    return 'uncategorized';
+  }
 }`;
     
     await fs.writeFile(path.join('src', 'lib', 'instagram.ts'), tsContent);
@@ -259,6 +370,7 @@ export async function getFeaturedPosts(count: number = 3): Promise<InstagramPost
     await browser.close();
     
     console.log('Done! Instagram scraping completed successfully.');
+    console.log(`Downloaded ${posts.length} posts from @jatinjewellershyd`);
   } catch (error) {
     console.error('Error scraping Instagram:', error);
     process.exit(1);

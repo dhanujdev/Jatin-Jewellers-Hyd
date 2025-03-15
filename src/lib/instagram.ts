@@ -1,9 +1,7 @@
 // Instagram API integration
 // This file provides utilities to fetch and process Instagram images
 // THIS FILE IS AUTO-GENERATED - DO NOT EDIT DIRECTLY
-// Last updated: 2025-03-15T18:43:48.050Z
-
-import instagramPostsData from '@/data/instagram-posts.json';
+// Last updated: 2025-03-15T19:05:31.546Z
 
 export type InstagramPost = {
   id: string;
@@ -15,6 +13,7 @@ export type InstagramPost = {
 };
 
 // Load Instagram posts from the JSON file
+import instagramPostsData from '@/data/instagram-posts.json';
 export const instagramPosts: InstagramPost[] = instagramPostsData;
 
 // Fetch Instagram posts - returns the static data
