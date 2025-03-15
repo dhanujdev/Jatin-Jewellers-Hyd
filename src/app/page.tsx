@@ -2,7 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import CategorySection from "@/components/home/CategorySection";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import StoreLocations from "@/components/home/StoreLocations";
-import Newsletter from "@/components/home/Newsletter";
+import InstagramFollow from "@/components/home/InstagramFollow";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <CategorySection />
       <FeaturedProducts />
       <StoreLocations />
-      <Newsletter />
+      <InstagramFollow />
     </>
   );
 }
