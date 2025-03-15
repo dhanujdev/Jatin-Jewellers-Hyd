@@ -42,13 +42,17 @@ export default function HeroSection() {
                   priority={index === 0}
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
-                  <h1 className="text-3xl md:text-5xl font-playfair mb-3 md:mb-6">{slide.title}</h1>
-                  <p className="text-lg md:text-xl mb-6 md:mb-8 max-w-xl">{slide.subtitle}</p>
+                  <h1 className="text-3xl md:text-5xl font-playfair mb-3 md:mb-6 gold-text-shadow">
+                    {slide.title}
+                  </h1>
+                  <p className="text-lg md:text-xl mb-8 md:mb-10 max-w-xl font-light">
+                    {slide.subtitle}
+                  </p>
                   <Link
                     href={slide.buttonLink}
-                    className="bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded transition-colors"
+                    className="bg-gold hover:bg-gold-dark text-white px-10 py-3 uppercase tracking-wider text-sm font-medium transition-colors"
                   >
                     {slide.buttonText}
                   </Link>
@@ -57,8 +61,10 @@ export default function HeroSection() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-4 text-white" />
-        <CarouselNext className="absolute right-4 text-white" />
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-10">
+          <CarouselPrevious className="relative static translate-y-0 h-10 w-10 rounded-full bg-black/30 text-white border-gold hover:bg-gold hover:text-black transition-colors" />
+          <CarouselNext className="relative static translate-y-0 h-10 w-10 rounded-full bg-black/30 text-white border-gold hover:bg-gold hover:text-black transition-colors" />
+        </div>
       </Carousel>
     </section>
   );

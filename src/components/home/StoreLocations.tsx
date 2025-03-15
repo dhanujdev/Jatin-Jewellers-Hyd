@@ -11,42 +11,39 @@ const storeLocation = {
 
 export default function StoreLocations() {
   return (
-    <section className="py-16 relative">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-20"
-        style={{
-          backgroundImage: "url('https://ext.same-assets.com/402991632/1540291210.jpeg')"
-        }}
-      ></div>
+    <section className="py-20 relative bg-white">
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-playfair text-center mb-4 text-gray-800">
-          Visit Our Store
-        </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-          Experience our exquisite jewelry collection in person at our elegantly designed store.
-        </p>
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-playfair mb-3 text-black">
+            Visit Our Store
+          </h2>
+          <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
+          <p className="text-black/70 max-w-3xl mx-auto font-light">
+            Experience our exquisite jewelry collection in person at our elegantly designed store.
+          </p>
+        </div>
 
         <div className="max-w-xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">{storeLocation.city}</h3>
-            <div className="flex items-start mb-2">
-              <MapPin size={18} className="text-gold shrink-0 mt-1 mr-2" />
-              <p className="text-gray-600">{storeLocation.address}</p>
+          <div className="bg-white p-8 elegant-shadow hover:shadow-lg transition-all duration-300 border-t-2 border-gold">
+            <h3 className="text-xl font-playfair mb-4 text-black">{storeLocation.city}</h3>
+            <div className="flex items-start mb-4">
+              <MapPin size={18} className="text-gold shrink-0 mt-1 mr-3" />
+              <p className="text-black/70">{storeLocation.address}</p>
             </div>
-            <div className="flex items-center mb-2">
-              <Phone size={18} className="text-gold shrink-0 mr-2" />
-              <a href={`tel:${storeLocation.phone.replace(/\s+/g, '')}`} className="text-gray-600 hover:text-gold">
+            <div className="flex items-center mb-4">
+              <Phone size={18} className="text-gold shrink-0 mr-3" />
+              <a href={`tel:${storeLocation.phone.replace(/\s+/g, '')}`} className="text-black/70 hover:text-gold transition-colors">
                 {storeLocation.phone}
               </a>
             </div>
-            <p className="text-gray-600 mb-4">
+            <p className="text-black/70 mb-6 pl-7">
               <span className="font-medium">Store Hours:</span> {storeLocation.hours}
             </p>
             <a
               href={storeLocation.mapLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold-dark flex items-center text-sm font-medium"
+              className="text-gold hover:text-black flex items-center text-sm font-medium transition-colors"
             >
               Get Directions
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">

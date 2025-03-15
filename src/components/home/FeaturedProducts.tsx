@@ -79,23 +79,24 @@ function formatPrice(price: number) {
 
 export default function FeaturedProducts() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-20 bg-white-off">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-playfair text-gray-800 mb-3">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-playfair mb-3 text-black">
             Bestsellers
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="w-24 h-px bg-gold mx-auto mb-6"></div>
+          <p className="text-black/70 max-w-2xl mx-auto font-light">
             Discover our most popular lab-grown diamond jewelry pieces, crafted with precision and elegance
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {featuredProducts.map((product) => (
             <Link
               href={`/product/${product.category}/${product.slug}`}
               key={product.id}
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              className="group bg-white elegant-shadow hover:shadow-lg transition-all duration-300"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -104,9 +105,10 @@ export default function FeaturedProducts() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               </div>
-              <div className="p-4">
-                <h3 className="text-gray-800 font-medium mb-1 group-hover:text-gold-dark transition-colors">
+              <div className="p-5">
+                <h3 className="text-black font-medium mb-2 group-hover:text-gold transition-colors">
                   {product.name}
                 </h3>
                 <p className="text-gold font-semibold">{formatPrice(product.price)}</p>
@@ -115,10 +117,10 @@ export default function FeaturedProducts() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-14">
           <Link
             href="/collections/bestsellers"
-            className="inline-block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded transition-colors"
+            className="inline-block bg-black hover:bg-gold text-white px-10 py-3 uppercase tracking-wider text-sm font-medium transition-colors"
           >
             View All Bestsellers
           </Link>

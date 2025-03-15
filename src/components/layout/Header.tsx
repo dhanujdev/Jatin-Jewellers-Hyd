@@ -13,11 +13,11 @@ const categories = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-playfair font-bold text-[#7d6546]">
-          JATIN JEWELLERS
+        <Link href="/" className="text-2xl font-playfair font-bold text-black">
+          <span className="text-gold">JATIN</span> JEWELLERS
         </Link>
 
         {/* Desktop Navigation */}
@@ -26,7 +26,7 @@ export default function Header() {
             <Link
               key={category.name}
               href={category.href}
-              className="text-sm font-medium text-gray-700 hover:text-[#7d6546] transition-colors"
+              className="text-sm uppercase tracking-wider font-medium text-black hover:text-gold transition-colors"
             >
               {category.name}
             </Link>
@@ -35,33 +35,38 @@ export default function Header() {
 
         {/* Utility Icons */}
         <div className="flex items-center space-x-4">
-          <button className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#7d6546]">
+          <button className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
             <Search size={20} />
           </button>
-          <Link href="/wishlist" className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#7d6546]">
+          <Link href="/wishlist" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
             <Heart size={20} />
           </Link>
-          <Link href="/account" className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#7d6546]">
+          <Link href="/account" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
             <User size={20} />
           </Link>
-          <Link href="/cart" className="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-[#7d6546]">
+          <Link href="/cart" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
             <ShoppingBag size={20} />
           </Link>
 
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <button className="w-8 h-8 flex items-center justify-center text-gray-700">
+              <button className="w-8 h-8 flex items-center justify-center text-black">
                 <Menu size={20} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col space-y-4 mt-8">
+            <SheetContent side="right" className="bg-white">
+              <div className="mt-8 mb-6">
+                <Link href="/" className="text-xl font-playfair font-bold text-black">
+                  <span className="text-gold">JATIN</span> JEWELLERS
+                </Link>
+              </div>
+              <nav className="flex flex-col space-y-5">
                 {categories.map((category) => (
                   <Link
                     key={category.name}
                     href={category.href}
-                    className="text-base font-medium text-gray-700 hover:text-[#7d6546] transition-colors"
+                    className="text-base uppercase tracking-wider font-medium text-black hover:text-gold transition-colors"
                   >
                     {category.name}
                   </Link>

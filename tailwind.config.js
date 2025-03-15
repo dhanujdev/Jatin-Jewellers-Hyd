@@ -23,9 +23,20 @@ module.exports = {
       },
       colors: {
         gold: {
-          light: '#ccb496',
-          DEFAULT: '#ac8e50',
-          dark: '#7d6546',
+          lightest: '#e9d9bc',
+          light: '#d4b978',
+          DEFAULT: '#c4a456',
+          dark: '#a38a45',
+          darkest: '#7d6a34',
+        },
+        black: {
+          light: '#333333',
+          DEFAULT: '#1a1a1a',
+          dark: '#000000',
+        },
+        white: {
+          off: '#f8f7f5',
+          DEFAULT: '#ffffff',
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
