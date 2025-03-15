@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "media_url": "/images/instagram/rings-1.jpeg",
+    "permalink": "https://www.instagram.com/p/example1/",
+    "caption": "Elegant diamond earrings with floral design #earrings #diamond #luxury",
+    "timestamp": "2023-05-15T10:00:00Z",
+    "category": "rings"
+  },
+  {
+    "id": "2",
+    "media_url": "/images/instagram/rings-2.jpeg",
+    "permalink": "https://www.instagram.com/p/example2/",
+    "caption": "Perfect solitaire engagement ring for your special day #ring #engagement #diamond",
+    "timestamp": "2023-06-20T14:30:00Z",
+    "category": "rings"
+  }
+]
