@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
           {/* Shop */}
           <div>
             <h3 className="text-lg font-cormorant font-light tracking-wider mb-6 text-gold">Shop</h3>
@@ -52,6 +52,38 @@ export default function Footer() {
               <li>
                 <Link href="/category/solitaire" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
                   Solitaire
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h3 className="text-lg font-cormorant font-light tracking-wider mb-6 text-gold">Customer Service</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/jewelry-care" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
+                  Jewelry Care
+                </Link>
+              </li>
+              <li>
+                <Link href="/ring-size-guide" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
+                  Ring Size Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/earring-guide" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
+                  Earring Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/necklace-guide" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
+                  Necklace Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/bracelet-guide" className="text-white/80 hover:text-gold text-sm font-montserrat font-light tracking-wide luxury-transition">
+                  Bracelet Guide
                 </Link>
               </li>
             </ul>
