@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Menu, Search, ShoppingBag, User, Heart } from "lucide-react";
+import { Menu, Search, User, Heart } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const categories = [
@@ -42,9 +42,6 @@ export default function Header() {
           </Link>
           <Link href="/account" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
             <User size={20} />
-          </Link>
-          <Link href="/cart" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
-            <ShoppingBag size={20} />
           </Link>
 
           {/* Mobile Menu */}
