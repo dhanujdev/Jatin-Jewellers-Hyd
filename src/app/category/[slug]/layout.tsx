@@ -23,8 +23,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default function CategoryLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { slug: string };
 }) {
   return (
     <div className="min-h-screen flex flex-col">
