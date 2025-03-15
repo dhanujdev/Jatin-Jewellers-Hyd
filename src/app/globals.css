@@ -64,15 +64,25 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-light;
+    @apply bg-background text-foreground font-montserrat font-light tracking-wide;
+    letter-spacing: 0.02em;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+    @apply font-cormorant font-light tracking-wide;
+    letter-spacing: 0.03em;
   }
 }
 
 /* Custom styles for luxury jewelry look */
 @layer components {
+  .font-heading {
+    @apply font-cormorant font-light tracking-wide;
+  }
+  
+  .font-body {
+    @apply font-montserrat font-light;
+  }
+  
   .gold-gradient {
     @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light;
   }
@@ -87,5 +97,9 @@
   
   .elegant-shadow {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .luxury-transition {
+    @apply transition-all duration-300 ease-in-out;
   }
 }

@@ -15,7 +15,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gold/20 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-playfair font-bold text-black">
+        <Link href="/" className="text-2xl font-cormorant font-light tracking-widest text-black">
           <span className="text-gold">JATIN</span> JEWELLERS
         </Link>
 
@@ -25,7 +25,7 @@ export default function Header() {
             <Link
               key={category.name}
               href={category.href}
-              className="text-sm uppercase tracking-wider font-medium text-black hover:text-gold transition-colors"
+              className="text-sm uppercase tracking-wider font-montserrat font-light text-black hover:text-gold transition-colors luxury-transition"
             >
               {category.name}
             </Link>
@@ -34,13 +34,13 @@ export default function Header() {
 
         {/* Utility Icons */}
         <div className="flex items-center space-x-4">
-          <button className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
+          <button className="w-8 h-8 flex items-center justify-center text-black hover:text-gold luxury-transition">
             <Search size={20} />
           </button>
-          <Link href="/wishlist" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
+          <Link href="/wishlist" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold luxury-transition">
             <Heart size={20} />
           </Link>
-          <Link href="/account" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold transition-colors">
+          <Link href="/account" className="w-8 h-8 flex items-center justify-center text-black hover:text-gold luxury-transition">
             <User size={20} />
           </Link>
 
@@ -53,7 +53,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-white">
               <div className="mt-8 mb-6">
-                <Link href="/" className="text-xl font-playfair font-bold text-black">
+                <Link href="/" className="text-xl font-cormorant font-light tracking-widest text-black">
                   <span className="text-gold">JATIN</span> JEWELLERS
                 </Link>
               </div>
@@ -62,7 +62,7 @@ export default function Header() {
                   <Link
                     key={category.name}
                     href={category.href}
-                    className="text-base uppercase tracking-wider font-medium text-black hover:text-gold transition-colors"
+                    className="text-base uppercase tracking-wider font-montserrat font-light text-black hover:text-gold luxury-transition"
                   >
                     {category.name}
                   </Link>

@@ -18,8 +18,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
-        playfair: ['var(--font-playfair)'],
+        sans: ['var(--font-montserrat)'],
+        montserrat: ['var(--font-montserrat)'],
+        cormorant: ['var(--font-cormorant)'],
       },
       colors: {
         gold: {
