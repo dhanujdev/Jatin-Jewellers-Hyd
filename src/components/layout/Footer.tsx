@@ -137,7 +137,7 @@ export default function Footer() {
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold luxury-transition w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
             <Facebook size={18} />
           </a>
-          <a href="https://instagram.com/jatinjewellershyd" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold luxury-transition w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
+          <a href="https://www.instagram.com/jatinjewellershyd/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold luxury-transition w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
             <Instagram size={18} />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold luxury-transition w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">

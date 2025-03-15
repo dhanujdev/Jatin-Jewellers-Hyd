@@ -129,8 +129,8 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
     `Hi Jatin Jewellers, I'm interested in this ${category} (${productName}) that I saw on your website. Can you provide more information?`
   );
   
-  // Extract Instagram username from permalink
-  const instagramUsername = product.permalink.split('/')[3] || 'jatinjewellershyd';
+  // Instagram username
+  const instagramUsername = 'jatinjewellershyd';
   
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
@@ -217,13 +217,13 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                 </a>
                 
                 <a 
-                  href={`https://instagram.com/direct/t/${instagramUsername}`}
+                  href="https://www.instagram.com/jatinjewellershyd/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-white py-3 rounded-md hover:opacity-90 transition-opacity"
                 >
                   <Instagram size={18} />
-                  <span>Message on Instagram</span>
+                  <span>Contact on Instagram</span>
                 </a>
               </div>
             </div>
