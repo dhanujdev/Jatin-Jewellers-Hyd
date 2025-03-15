@@ -218,16 +218,16 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                 
                 <div className="space-y-2">
                   <a 
-                    href="https://www.instagram.com/jatinjewellershyd/"
+                    href="https://www.instagram.com/direct/t/jatinjewellershyd"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-white py-3 rounded-md hover:opacity-90 transition-opacity"
                   >
                     <Instagram size={18} />
-                    <span>Visit Our Instagram</span>
+                    <span>Message me on Instagram</span>
                   </a>
                   <p className="text-xs text-black/60 text-center">
-                    Follow us and send a DM about this {category} to get more details
+                    Opens Instagram direct message to Jatin Jewellers. Please mention this {category} in your message.
                   </p>
                 </div>
               </div>
