@@ -21,12 +21,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
+// In Next.js 15, layout components don't directly receive params as props
 export default function CategoryLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
 }) {
   return (
     <div className="min-h-screen flex flex-col">
