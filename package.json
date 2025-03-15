@@ -9,21 +9,29 @@
     "start": "next start",
     "lint": "next lint",
     "fmt": "prettier --write .",
-    "fetch-instagram": "node scripts/fetch-instagram-complete.js"
+    "fetch-instagram": "node scripts/fetch-instagram-complete.js",
+    "scrape-instagram": "node scripts/instagram-scraper.js",
+    "manual-instagram": "node scripts/manual-instagram-import.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
+    "axios": "^1.8.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.5.2",
+    "fs-extra": "^11.3.0",
     "lucide-react": "^0.482.0",
     "next": "15.2.0",
+    "prompt-sync": "^4.2.0",
+    "puppeteer": "^24.4.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tailwind-merge": "^3.0.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.17.22",

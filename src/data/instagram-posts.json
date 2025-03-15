@@ -3,7 +3,7 @@
     "id": "1",
     "media_url": "/images/instagram/rings-1.jpeg",
     "permalink": "https://www.instagram.com/p/example1/",
-    "caption": "Elegant diamond earrings with floral design #earrings #diamond #luxury",
+    "caption": "Elegant diamond ring with floral design #rings #diamond #luxury",
     "timestamp": "2023-05-15T10:00:00Z",
     "category": "rings"
   },
@@ -11,8 +11,56 @@
     "id": "2",
     "media_url": "/images/instagram/rings-2.jpeg",
     "permalink": "https://www.instagram.com/p/example2/",
-    "caption": "Perfect solitaire engagement ring for your special day #ring #engagement #diamond",
+    "caption": "Perfect solitaire engagement ring for your special day #rings #engagement #diamond",
     "timestamp": "2023-06-20T14:30:00Z",
     "category": "rings"
+  },
+  {
+    "id": "3",
+    "media_url": "/images/instagram/earrings-1.jpeg",
+    "permalink": "https://www.instagram.com/p/example3/",
+    "caption": "Stunning diamond earrings for your special occasions #earrings #diamond #luxury",
+    "timestamp": "2023-07-10T09:15:00Z",
+    "category": "earrings"
+  },
+  {
+    "id": "4",
+    "media_url": "/images/instagram/earrings-2.jpeg",
+    "permalink": "https://www.instagram.com/p/example4/",
+    "caption": "Elegant pearl earrings with gold accents #earrings #pearl #gold",
+    "timestamp": "2023-08-05T16:45:00Z",
+    "category": "earrings"
+  },
+  {
+    "id": "5",
+    "media_url": "/images/instagram/pendants-1.jpeg",
+    "permalink": "https://www.instagram.com/p/example5/",
+    "caption": "Beautiful diamond pendant for everyday wear #pendants #diamond #everyday",
+    "timestamp": "2023-09-12T11:30:00Z",
+    "category": "pendants"
+  },
+  {
+    "id": "6",
+    "media_url": "/images/instagram/pendants-2.jpeg",
+    "permalink": "https://www.instagram.com/p/example6/",
+    "caption": "Exquisite gemstone pendant with intricate design #pendants #gemstone #design",
+    "timestamp": "2023-10-18T13:20:00Z",
+    "category": "pendants"
+  },
+  {
+    "id": "7",
+    "media_url": "/images/instagram/bracelets-1.jpeg",
+    "permalink": "https://www.instagram.com/p/example7/",
+    "caption": "Delicate gold bracelet with diamond accents #bracelets #gold #diamond",
+    "timestamp": "2023-11-25T15:10:00Z",
+    "category": "bracelets"
+  },
+  {
+    "id": "8",
+    "media_url": "/images/instagram/bracelets-2.jpeg",
+    "permalink": "https://www.instagram.com/p/example8/",
+    "caption": "Statement bracelet with colorful gemstones #bracelets #gemstone #statement",
+    "timestamp": "2023-12-30T12:40:00Z",
+    "category": "bracelets"
   }
 ]

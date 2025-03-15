@@ -3,6 +3,7 @@ import CategorySection from "@/components/home/CategorySection";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import StoreLocations from "@/components/home/StoreLocations";
 import InstagramFollow from "@/components/home/InstagramFollow";
+import InstagramFeed from "@/components/home/InstagramFeed";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <CategorySection />
       <FeaturedProducts />
       <StoreLocations />
+      <InstagramFeed />
       <InstagramFollow />
     </>
   );

@@ -15,6 +15,41 @@ This website displays images from the Jatin Jewellers Instagram account (@jatinj
 
 ### How to Update the Website with New Instagram Posts
 
+There are three ways to update the website with new Instagram posts:
+
+#### Option 1: Manual Import (Recommended)
+
+This is the simplest method that doesn't require API access:
+
+1. **Save Images**: Save the images you want to add to your website to the `public/images/instagram/manual` directory
+2. **Run the Manual Import Script**:
+   ```bash
+   # Install dependencies (first time only)
+   npm install fs-extra prompt-sync uuid
+   
+   # Run the script
+   npm run manual-instagram
+   ```
+3. **Follow the Prompts**: The script will guide you through categorizing each image
+4. **Deploy the Changes**: Commit and push the changes to your repository
+
+#### Option 2: Instagram Scraper
+
+This method uses Puppeteer to scrape your Instagram account:
+
+1. **Install Dependencies**:
+   ```bash
+   npm install puppeteer fs-extra
+   ```
+2. **Run the Scraper Script**:
+   ```bash
+   npm run scrape-instagram
+   ```
+3. **Follow the Prompts**: Enter your Instagram credentials when prompted
+4. **Deploy the Changes**: Commit and push the changes to your repository
+
+#### Option 3: Instagram API (Advanced)
+
 When you add new jewelry images to your Instagram account:
 
 1. **Post to Instagram**: Add new jewelry images to your Instagram account with appropriate hashtags
@@ -27,7 +62,7 @@ When you add new jewelry images to your Instagram account:
    echo "INSTAGRAM_ACCESS_TOKEN=your_token_here" > .env
    
    # Run the script
-   node scripts/fetch-instagram-complete.js
+   npm run fetch-instagram
    ```
 3. **Deploy the Changes**: Commit and push the changes to your repository
 
@@ -40,9 +75,9 @@ Include appropriate hashtags or keywords in your Instagram captions to categoriz
 - For pendants: Include #pendant, #pendants, #necklace, or #necklaces
 - For bracelets: Include #bracelet, #bracelets, #bangle, or #bangles
 
-### Setting Up Instagram API Access (One-Time Setup)
+### Setting Up Instagram API Access (Only for Option 3)
 
-To fetch images from Instagram, you'll need to set up API access:
+To fetch images from Instagram using the API, you'll need to set up API access:
 
 1. Create a Facebook Developer account at [developers.facebook.com](https://developers.facebook.com/)
 2. Create a Facebook App
